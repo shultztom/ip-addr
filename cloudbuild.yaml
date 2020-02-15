@@ -9,7 +9,6 @@ steps:
   - name: "gcr.io/cloud-builders/gke-deploy:stable"
     args:
     - run
-    - --filename=/
     - --image=gcr.io/lucky-era-263115/ip-addr:latest
     - --location=us-central1-a
     - --cluster=your-first-cluster1
