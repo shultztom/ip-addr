@@ -1,0 +1,13 @@
+---
+    apiVersion: "extensions/v1beta1"
+    kind: "Ingress"
+    metadata:
+      name: "ip-addr-ingress"
+      namespace: "default"
+      annotations:
+        networking.gke.io/managed-certificates: "ip-addr-cert"
+    spec:
+      backend:
+        serviceName: "ip-addr-service"
+        servicePort: 80
+    
