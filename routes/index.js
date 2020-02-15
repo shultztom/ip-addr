@@ -19,6 +19,14 @@ const getIP = (req) => {
     console.log('ERROR: Issue splitting IP Address')
     ip = null;
   }
+  try {
+    if(ip.includes('::ffff:')){
+      ip = ip.replace('::ffff:', '');
+    }
+  } catch (error) {
+    console.log('ERROR: Issue cleaning IP Address')
+    ip = null;
+  }
 
   return ip;
 }

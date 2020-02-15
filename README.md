@@ -23,4 +23,3 @@ $ curl https://ip-addr.shultzlab.com/json
 
 1. `docker image build -t ip-addr:stable .`
 2. `docker run --rm -d -p 3000:3000/tcp ip-addr:stable`
-
