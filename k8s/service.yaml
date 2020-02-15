@@ -17,12 +17,12 @@ spec:
     nodePort: 30856
     port: 80
     protocol: TCP
-    targetPort: 8080
+    targetPort: 3000
   - name: 443-to-8080-tcp
     nodePort: 31539
     port: 443
     protocol: TCP
-    targetPort: 8080
+    targetPort: 3000
   selector:
     app: ip-addr
   sessionAffinity: None
