@@ -31,7 +31,7 @@ app.use(function(err, req, res, next) {
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // Send the error message
-  res.status(err.status || 500).send(res.locals.message || "General Service Error");
+  res.status(err.status || 500).json({err:res.locals.message} || {err:"General Service Error"});
 });
 
 module.exports = app;
