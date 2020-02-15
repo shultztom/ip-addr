@@ -10,7 +10,7 @@ steps:
     args:
     - run
     # - --filename=/k8s
-    - --image=gcr.io/lucky-era-263115/ip-addr:latest
+    - --image=gcr.io/lucky-era-263115/ip-addr:stable
     - --location=us-central1-a
     - --cluster=standard-cluster-1
   
