@@ -1,8 +1,13 @@
 const express = require('express');
 const router = express.Router();
 
-/* GET home page. */
+// Return as JSON
 router.get('/', function(req, res, next) {
+  const ip = getIP(req);
+  res.status(200).json({ip})
+});
+
+const getIP = (req) => {
   let ip = req.headers['x-forwarded-for'] || 
     req.connection.remoteAddress || 
     req.socket.remoteAddress ||
@@ -14,8 +19,8 @@ router.get('/', function(req, res, next) {
     console.log('ERROR: Issue splitting IP Address')
     ip = null;
   }
-    
-  res.status(200).json({ip})
-});
+
+  return ip;
+}
 
 module.exports = router;
