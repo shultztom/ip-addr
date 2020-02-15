@@ -11,6 +11,8 @@ const app = express();
 app.use(helmet());
 app.use(cors());
 
+// app.set('trust proxy',true); 
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

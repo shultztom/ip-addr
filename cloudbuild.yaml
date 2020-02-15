@@ -1,0 +1,16 @@
+steps:
+    # build the container image
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["build", "-t", "gcr.io/lucky-era-263115/ip-addr:latest", "."]
+    # push container image
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "gcr.io/lucky-era-263115/ip-addr:latest"]
+    # deploy container image to GKE
+  - name: "gcr.io/cloud-builders/gke-deploy:stable"
+    args:
+    - run
+    - --filename=/
+    - --image=gcr.io/lucky-era-263115/ip-addr:latest
+    - --location=us-central1-a
+    - --cluster=your-first-cluster1
+  
