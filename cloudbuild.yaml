@@ -11,5 +11,5 @@ steps:
     - run
     - --image=gcr.io/lucky-era-263115/ip-addr:latest
     - --location=us-central1-a
-    - --cluster=your-first-cluster1
+    - --cluster=your-first-cluster-1
   
