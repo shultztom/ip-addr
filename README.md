@@ -1,11 +1,11 @@
 # ip-addr
 
-A simple service for looking up your IP address, returns as JSON. Available at https://ip-addr.shultzlab.com/. Hosted on GKE
+A simple service for looking up your IP address, returns as JSON. Available at https://ip-addr.shultzlab.com on GKE and https://ip-addr-aws.shultzlab.com/ on AWS ECS
 
 ## Usage
 
 ```
-$ curl https://ip-addr.shultzlab.com/json
+$ curl https://ip-addr.shultzlab.com
 ```
 
 ## Run locally (with Node.js)
@@ -17,6 +17,9 @@ $ curl https://ip-addr.shultzlab.com/json
 
 1. `docker image build -t ip-addr:stable .`
 2. `docker run --rm -d -p 3000:3000/tcp ip-addr:stable`
+
+## Deploy new code to GKE
+1. Push to master
 
 ## Setup for ECS
 
@@ -46,3 +49,7 @@ $ curl https://ip-addr.shultzlab.com/json
         * Use target group from previous step
     * Uncheck Service discovery
 6. Go back to load balancer to get DNS name and set up CNAME record
+
+## Deploy new code to AWS
+
+1. `./aws-ecs-deploy`
