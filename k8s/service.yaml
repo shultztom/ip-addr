@@ -1,25 +1,25 @@
 apiVersion: v1
 kind: Service
 metadata:
-  creationTimestamp: "2020-02-15T19:11:21Z"
+  creationTimestamp: "2020-02-16T17:59:35Z"
   labels:
     app: ip-addr
   name: ip-addr-service
   namespace: default
-  resourceVersion: "1345"
+  resourceVersion: "2439"
   selfLink: /api/v1/namespaces/default/services/ip-addr-service
-  uid: f3972e3d-5026-11ea-9467-42010a80017e
+  uid: 175689a1-50e6-11ea-9df2-42010a800155
 spec:
-  clusterIP: 10.12.11.93
+  clusterIP: 10.0.5.210
   externalTrafficPolicy: Cluster
   ports:
-  - name: 80-to-8080-tcp
-    nodePort: 30856
+  - name: 80-to-3000-tcp
+    nodePort: 30239
     port: 80
     protocol: TCP
     targetPort: 3000
-  - name: 443-to-8080-tcp
-    nodePort: 31539
+  - name: 443-to-3000-tcp
+    nodePort: 31344
     port: 443
     protocol: TCP
     targetPort: 3000

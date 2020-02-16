@@ -12,5 +12,5 @@ steps:
     # - --filename=/k8s
     - --image=gcr.io/lucky-era-263115/ip-addr:stable
     - --location=us-central1-a
-    - --cluster=standard-cluster-1
+    - --cluster=small-scalable-cluster-1
   

@@ -1,6 +1,6 @@
 # ip-addr
 
-A simple service for looking up your IP address, returns as JSON. Available at https://ip-addr.shultzlab.com on GKE and https://ip-addr-aws.shultzlab.com/ on AWS ECS
+A simple service for looking up your IP address, returns as JSON. Available at https://ip-addr.shultzlab.com on GKE ~~and https://ip-addr-aws.shultzlab.com/ on AWS ECS~~ (Ran out of Credits)
 
 ## Usage
 
@@ -18,8 +18,17 @@ $ curl https://ip-addr.shultzlab.com
 1. `docker image build -t ip-addr:stable .`
 2. `docker run --rm -d -p 3000:3000/tcp ip-addr:stable`
 
+## Setup for GKE
+1. Create cluster (g1-small, autoscaling 1-5)
+2. Deploy image from Docker Hub or GCP Registry
+3. Create Service
+    * Create (80:3000, 443:3000, type of Node port)
+4. Create Ingress
+    * Configure for SSL
+5. Get IP from Ingress and set up DNS
+
 ## Deploy new code to GKE
-1. Push to master
+1. Push to master (Cloud Build with build and deploy image)
 
 ## Setup for ECS
 
