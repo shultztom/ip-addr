@@ -20,7 +20,8 @@ $ curl https://ip-addr.shultzlab.com
 
 ## Setup for GKE
 1. Create cluster (g1-small, autoscaling 1-5)
-2. Deploy image from Docker Hub or GCP Registry
+2. Trigger Cloud Build (Or manually deploy if you don't want to use Cloud Build)
+    * If you manually deploy and want to use Cloud Build later, watch for issues with two containers running on same pod and port conflicts
 3. Create Service
     * Create (80:3000, 443:3000, type of Node port)
 4. Create Ingress
@@ -29,7 +30,6 @@ $ curl https://ip-addr.shultzlab.com
 
 ## Deploy new code to GKE
 1. Push to master (Cloud Build with build and deploy image)
-    * You may have to manually delete your first revision to get it all working
 
 ## Setup for ECS
 
