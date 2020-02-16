@@ -29,6 +29,7 @@ $ curl https://ip-addr.shultzlab.com
 
 ## Deploy new code to GKE
 1. Push to master (Cloud Build with build and deploy image)
+    * You may have to manually delete your first revision to get it all working
 
 ## Setup for ECS
 
