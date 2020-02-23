@@ -3,42 +3,20 @@ const router = express.Router();
 const maxmind = require("maxmind");
 
 // Return as JSON
+// Gets IP address from request and tries to get GeoIP data
 router.get("/", function(req, res, next) {
   const ip = getIP(req);
-  const maxMindData = getMaxMindData(ip);
-  if (maxMindData) {
-    maxMindData
-      .then(geoData => {
-        if (geoData) {
-          let ipInfo = {
-            city: geoData.city.names.en,
-            state: geoData.subdivisions[0].iso_code,
-            postalCode: geoData.postal.code,
-            country: geoData.country.names.en,
-            latitude: geoData.location.latitude,
-            longitude: geoData.location.longitude,
-            timezone: geoData.location.time_zone,
-            msg:
-              "Data provided by MaxMind GeoLite2 Databases, you can find out more at https://maxmind.com"
-          };
-          ipInfo = { ip, ...ipInfo };
-          return res.status(200).json(ipInfo);
-        } else {
-          // No geoData, just send ip address
-          return res.status(200).json({ ip });
-        }
-      })
-      .catch(err => {
-        // Error getting geoData, just send ip address
-        console.log(err);
-        return res.status(200).json({ ip });
-      });
-  } else {
-    // No geoData, just send ip address
-    return res.status(200).json({ ip });
-  }
+  handleMaxMindData(res, ip);
 });
 
+// Return as JSON
+// Gets IP address from ip provided and tries to get GeoIP data
+router.get("/:ip", function(req, res, next) {
+  const { ip } = req.params;
+  handleMaxMindData(res, ip);
+});
+
+// Helper Functions
 const getIP = req => {
   let ip =
     req.headers["x-forwarded-for"] ||
@@ -78,6 +56,44 @@ const getMaxMindData = ip => {
       });
   } else {
     return null;
+  }
+};
+
+const handleMaxMindData = (res, ip) => {
+  if (!maxmind.validate(ip)) {
+    return res.status(400).json({ err: "Bad Request" });
+  }
+  const maxMindData = getMaxMindData(ip);
+  if (maxMindData) {
+    maxMindData
+      .then(geoData => {
+        if (geoData) {
+          let ipInfo = {
+            city: geoData.city.names.en,
+            state: geoData.subdivisions[0].iso_code,
+            postalCode: geoData.postal.code,
+            country: geoData.country.names.en,
+            latitude: geoData.location.latitude,
+            longitude: geoData.location.longitude,
+            timezone: geoData.location.time_zone,
+            msg:
+              "Data provided by MaxMind GeoLite2 Databases, you can find out more at https://maxmind.com"
+          };
+          ipInfo = { ip, ...ipInfo };
+          return res.status(200).json(ipInfo);
+        } else {
+          // No geoData, just send ip address
+          return res.status(200).json({ ip });
+        }
+      })
+      .catch(err => {
+        // Error getting geoData, just send ip address
+        console.log(err);
+        return res.status(200).json({ ip });
+      });
+  } else {
+    // No geoData, just send ip address
+    return res.status(200).json({ ip });
   }
 };
 
