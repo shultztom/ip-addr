@@ -733,6 +733,13 @@ make-dir@^1.0.0:
   dependencies:
     pify "^3.0.0"
 
+maxmind@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/maxmind/-/maxmind-4.1.0.tgz#d42c10f74ff9e27c338ea5f7001e0e080557a04c"
+  integrity sha512-rcJ9EDNDFttuD8zrJSrcBwladOfrGbm37kF8OpgUn7N2ZtgyBQzxtg81Chqkmq2pFyCClBhQ8Nv2zBvoeIuqiQ==
+  dependencies:
+    tiny-lru "7.0.2"
+
 media-typer@0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
@@ -1116,6 +1123,11 @@ timed-out@^4.0.0:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/timed-out/-/timed-out-4.0.1.tgz#f32eacac5a175bea25d7fab565ab3ed8741ef56f"
   integrity sha1-8y6srFoXW+ol1/q1Zas+2HQe9W8=
+
+tiny-lru@7.0.2:
+  version "7.0.2"
+  resolved "https://registry.yarnpkg.com/tiny-lru/-/tiny-lru-7.0.2.tgz#6a8853deb1e355f4c8863bf1289337e3e3a7e973"
+  integrity sha512-cmc9OOwmnAJtyFBYaznKR3abypEhWecarFrvS5db6qwSgoaDUWV0JX+mdh6B9wN60Wux3+gE1vjzxkoqxFBjqw==
 
 to-regex-range@^5.0.1:
   version "5.0.1"
