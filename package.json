@@ -1,7 +1,6 @@
 {
   "name": "@shultztom/ip-addr",
   "version": "1.0.0",
-  "private": true,
   "scripts": {
     "start": "node ./bin/www",
     "start:dev": "nodemon ./bin/www",
@@ -19,5 +18,8 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.2"
+  },
+  "publishConfig": {
+    "registry": "https://nexus.shultzlab.com/repository/npm-internal/"
   }
 }
