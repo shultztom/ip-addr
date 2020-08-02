@@ -1,6 +1,6 @@
 # ip-addr
 
-A simple service for looking up your IP address, returns as JSON. Available at https://ip-addr.shultzlab.com on GKE ~~and https://ip-addr-aws.shultzlab.com/ on AWS ECS~~ (Ran out of Credits)
+A simple service for looking up your IP address, returns as JSON. Available at https://ip-addr.shultzlab.com (Self-Hosted) ~~https://ip-addr.shultzlab.com on GKE~~ ~~and https://ip-addr-aws.shultzlab.com/ on AWS ECS~~ (Ran out of Credits)
 
 ## Usage
 
