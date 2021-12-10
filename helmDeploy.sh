@@ -1,0 +1,1 @@
+helm upgrade --install ip-addr shultzlab/http-deploy  -f .helm/deploy/values.yaml

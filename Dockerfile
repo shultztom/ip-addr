@@ -13,6 +13,6 @@ RUN yarn install --production
 # Bundle app source
 COPY . .
 
-EXPOSE 3000
+EXPOSE 8080
 USER node
 CMD [ "yarn", "start" ]
