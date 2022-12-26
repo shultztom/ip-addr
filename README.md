@@ -1,6 +1,6 @@
 # ip-addr
 
-A simple service for looking up your IP address, returns as JSON. Available at https://ip-addr.shultzlab.com (Self-Hosted) ~~https://ip-addr.shultzlab.com on GKE~~ ~~and https://ip-addr-aws.shultzlab.com/ on AWS ECS~~ (Ran out of Credits)
+A simple service for looking up your IP address, returns as JSON. Available at https://ip-addr.shultzlab.com ~~(Self-Hosted)~~ (LKE) ~~https://ip-addr.shultzlab.com on GKE~~ ~~and https://ip-addr-aws.shultzlab.com/ on AWS ECS~~ (Ran out of Credits)
 
 ## Usage
 
@@ -63,3 +63,7 @@ $ curl https://ip-addr.shultzlab.com
 ## Deploy new code to AWS
 
 1. `./aws-ecs-deploy`
+
+## LKE
+
+1. Use helm to deploy

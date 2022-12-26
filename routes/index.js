@@ -19,9 +19,8 @@ router.get("/:ip", function(req, res, next) {
 // Helper Functions
 const getIP = req => {
   let ip =
-    req.headers["x-forwarded-for"] ||
-    req.connection.remoteAddress ||
     req.socket.remoteAddress ||
+    req.headers["x-forwarded-for"] ||    
     (req.connection.socket ? req.connection.socket.remoteAddress : null);
 
   try {
